@@ -1,0 +1,74 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+  int data;
+  struct node*next;
+};
+struct node*head;
+void append(int d)
+{
+  struct node*newnode=(struct node*)malloc(sizeof(struct node));
+  struct node*temp=head;
+  newnode->data=d;
+  newnode->next=NULL;
+  if(head==NULL)
+  {
+    head=newnode;
+  }
+  else
+  {
+    while(temp->next!=NULL)
+    {
+      temp=temp->next;
+    }
+    temp->next=newnode;
+  }
+}
+ void duplicate()
+ {
+   struct node*temp1=head;
+   struct node*temp2,*ptr;
+   while(temp1!=NULL)
+   {
+     temp2=temp1->next;
+     ptr=temp1;
+     while(temp2!=NULL)
+     {
+       if(temp1->data!=temp2->data)
+       {
+         temp2=temp2->next;
+         ptr=ptr->next;
+       }else
+       {
+         ptr->next=temp2->next;
+         temp2->next=NULL;
+         temp2=ptr->next;
+       }
+     }
+     temp1=temp1->next;
+   }
+ }
+void display()
+{
+  struct node*temp=head;
+  while(temp!=NULL)
+  {
+    printf("%d ",temp->data);
+    temp=temp->next;
+  }
+}
+int main()
+{
+  int d;
+  do
+  {
+    scanf("%d",&d);
+    if(d>0)
+      append(d);
+  }while(d!=-1);
+  duplicate();
+  printf("The assigned roll numbers are: ");
+  display();
+}
