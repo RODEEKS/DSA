@@ -31,7 +31,7 @@ void push(struct Node** head_ref, int new_data)
 void printList(struct Node* head)
 {
 	struct Node* temp = head;
-	while (temp != NULL) {
+	while (temp != NULL){
 		printf("%d ", temp->data);
 		temp = temp->next;
 	}
