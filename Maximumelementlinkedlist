@@ -1,0 +1,67 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+  int data;
+  struct node*next;
+};
+struct node*head;
+void append(int d)
+{
+  struct node*newnode=(struct node*)malloc(sizeof(struct node));
+  struct node*temp=head;
+  newnode->data=d;
+  newnode->next=NULL;
+  if(head==NULL)
+  {
+    head=newnode;
+  }else
+  {
+    while(temp->next!=NULL)
+    {
+      temp=temp->next;
+    }
+    temp->next=newnode;
+  }
+}
+void maximum()
+{
+  struct node*temp=head;
+  int max=0;
+  while(temp!=NULL)
+  {
+    if(temp->data>max)
+    {
+      max=temp->data;
+    }
+    temp=temp->next;
+  }
+  printf("The maximum mark is %d.",max);
+}
+void printList(struct node *head)
+{
+    struct node *temp = head;
+    while(temp != NULL)
+    {
+         printf("%d ", temp->data);
+         temp = temp->next;
+    }
+    printf("\n");
+}
+
+int main()
+{
+  int d;
+  do
+  {
+    scanf("%d",&d);
+    if(d>0)
+      append(d);
+  }while(d!=-1);
+  printf("The students marks are:\n");
+  printList(head);
+  maximum();
+  return 0;
+}
+
