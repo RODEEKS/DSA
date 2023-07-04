@@ -1,0 +1,52 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int value;
+    struct node *next;
+};
+
+    struct node *head=NULL;
+    struct node *tail=NULL; 
+
+void printlist(struct node *p)
+{
+    printf("Elements in list are : ");
+    while(p)
+    {
+        printf("%d ", p->value);
+        p = p->next;
+    }
+}
+void insert(int n)
+{
+    struct node *newnode=NULL;
+    newnode=(struct node *)malloc(sizeof(struct node));
+    if(head==NULL)
+    {
+        head=newnode;
+        tail=newnode;
+    }
+    else
+    {
+        tail->next=newnode;
+        tail=newnode;
+    }
+    newnode->value=n;
+    newnode->next=NULL;
+}
+
+int main()
+{
+    printf("Enter n : ");
+    while(1)
+    {
+        int n;
+        scanf("%d", &n);
+        if(n<0)
+            break;
+        insert(n);
+    }
+    printlist(head);
+    return 0;
