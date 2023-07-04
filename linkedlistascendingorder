@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+void sortList(struct node *head) {  
+        //Node current will point to head  
+        struct node *current = head, *index = NULL;  
+        int temp;  
+          
+        if(head == NULL) {  
+            return;  
+        }  
+        else {  
+            while(current != NULL) {  
+                //Node index will point to node next to current  
+                index = current->next;  
+                  
+                while(index != NULL) {  
+                    //If current node's data is greater than index's node data, swap the data between them  
+                    if(current->data > index->data) {  
+                        temp = current->data;  
+                        current->data = index->data;  
+                        index->data = temp;  
+                    }  
+                    index = index->next;  
+                }  
+                current = current->next;  
+            }      
+        }  
+    }  
+
+void addLast(struct node **head, int val)
+{
+    //create a new node
+    struct node *newNode = malloc(sizeof(struct node));
+    newNode->data = val;
+    newNode->next     = NULL;
+
+    //if head is NULL, it is an empty list
+    if(*head == NULL)
+         *head = newNode;
+    //Otherwise, find the last node and add the newNode
+    else
+    {
+        struct node *lastNode = *head;
+
+        //last node's next address will be NULL.
+        while(lastNode->next != NULL)
+        {
+            lastNode = lastNode->next;
+        }
+
+        //add the newNode at the end of the linked list
+        lastNode->next = newNode;
+    }
+
+}
+
+void printList(struct node *head)
+{
+    struct node *temp = head;
+
+    //iterate the entire linked list and print the data
+    while(temp != NULL)
+    {
+         printf("%d ", temp->data);
+         temp = temp->next;
+    }
+}
+int main()
+{
+	struct node *head = NULL;	int n;
+	while(1)
+	{
+		scanf("%d",&n);
+		if(n != -1)
+			addLast(&head, n);
+		else
+			break;
+	}
+  sortList(head);
+  printf("The students are seated in the order: ");
+	printList(head);
+}
+
