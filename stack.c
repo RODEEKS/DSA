@@ -5,8 +5,7 @@ int count=0;
 struct stack
 {
     int item[MAX];
-    int top;
-    
+    int top;   
 };
 typedef struct stack st;
 void create(st *s)
@@ -35,11 +34,9 @@ int push(st *s, int value)
     printf("full\n");
     }
     else
-    
     {
         s->top++;
         s->item[s->top]=value;
-      
     }
     count++;
 }
@@ -70,11 +67,8 @@ int main()
     int data;
     st *s=malloc(sizeof(st));
     create(s);
-    int n;
-    printf("Enter the stack size : ");
-    scanf("%d",&n);
-    printf("Enter the elements : ");
-    for(int i=0;i<n;i++)
+    printf("Enter the elements : \n");
+    for(int i=0;i<MAX;i++)
     {
         scanf("%d",&data);
         push(s,data);
