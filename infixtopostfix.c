@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h> /* for exit() */
+#include <stdlib.h> 
 #include <ctype.h> /* for isdigit(char ) */
 #include <string.h>
 #define SIZE 100
@@ -8,8 +8,6 @@
 * is used by more than one fucntions */
 char stack[SIZE];
 int top = -1;
-
-/* define push operation */
 
 void push(char item)
 {
@@ -22,7 +20,6 @@ void push(char item)
     }
 }
 
-/* define pop operation */
 char pop()
 {
     char item;
@@ -41,10 +38,6 @@ char pop()
     }
 }
 
-/* define function that is used to determine whether any symbol is operator or not
-(that is symbol is operand)
-* this fucntion returns 1 if symbol is opreator else return 0 */
-
 int is_operator(char symbol)
 {
     if (symbol == '^' || symbol == '*' || symbol == '/' || symbol == '+' || symbol == '-') {
@@ -54,11 +47,6 @@ int is_operator(char symbol)
         return 0;
     }
 }
-
-/* define fucntion that is used to assign precendence to operator.
-* Here ^ denotes exponent operator.
-* In this fucntion we assume that higher integer value
-* means higher precendence */
 
 int precedence(char symbol)
 {
@@ -117,17 +105,16 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[])
         }
         else if (item == ')') /* if current symbol is ')' then */
         {
-            x = pop(); /* pop and keep popping until */
-            while (x != '(') /* '(' encounterd */
+            x = pop(); /* pop and keep popping until '(' encounterd */
+            while (x != '(') 
             {
                 postfix_exp[j] = x;
                 j++;
                 x = pop();
             }
         }
-        else { /* if current symbol is neither operand not '(' nor ')' and nor
-			operator */
-            printf("\nInvalid infix Expression.\n"); /* the it is illegeal  symbol */
+        else { 
+            printf("\nInvalid infix Expression.\n"); 
             getchar();
             exit(1);
         }
@@ -136,7 +123,7 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[])
         item = infix_exp[i]; /* go to next symbol of infix expression */
     } /* while loop ends here */
 
-    postfix_exp[j] = '\0'; /* add sentinel else puts() fucntion */
+    postfix_exp[j] = '\0'; 
     /* will print entire postfix[] array upto SIZE */
 }
 
