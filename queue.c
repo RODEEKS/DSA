@@ -27,7 +27,6 @@ int insert(q*s,int v)
         }
         s->r++;
         s->item[s->r]=v;
-        //printf("%d\n",v);
     }
     
 }
