@@ -27,7 +27,7 @@ int insert(q*s,int v)
         }
         s->r++;
         s->item[s->r]=v;
-        printf("%d\n",v);
+        //printf("%d\n",v);
     }
     
 }
@@ -39,15 +39,13 @@ int del(q*s)
     }
     else
     {
-      
-        
-            printf("%d\n",s->item[s->f]);
+        printf("%d\n",s->item[s->f]);
         s->f++;
-            if(s->f>s->r)
-            {
-        s->f=-1;
-        s->r=-1;
-    }
+        if(s->f>s->r)
+        {
+            s->f=-1;
+            s->r=-1;
+        }
     }
 } 
 int dis(q*s)
@@ -59,21 +57,20 @@ int dis(q*s)
 }
 int main()
 {
+    int data;
     q*s=malloc(sizeof(q));
     create(s);
-    insert(s,1);
-    insert(s,2);
-    insert(s,3);
-    insert(s,4);
-    del(s);
-   
-    del(s);
-    del(s);
+    printf("Enter the elements : \n");
+    for(int i=0;i<Max;i++)
+    {
+        scanf("%d",&data);
+        insert(s,data);
+    }
+    
+    printf("Delete the element : \n");
     del(s);
     dis(s);
-
     printf("%s", "\U0001f600 ");
 }
-
 
 
