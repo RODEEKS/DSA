@@ -69,8 +69,8 @@ int main()
         insert(s,data);
     }
     
-    //printf("Delete the element : \n");
-    //del(s);
+    printf("Delete the element : \n");
+    del(s);
     printf("Elements inside queue is : ");
     dis(s);
     printf("%s", "\U0001f600 ");
