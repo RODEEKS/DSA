@@ -40,18 +40,21 @@ int del(q*s)
     {
         printf("%d\n",s->item[s->f]);
         s->f++;
+        
         if(s->f>s->r)
         {
             s->f=-1;
             s->r=-1;
         }
+        
     }
+    
 } 
 int dis(q*s)
 {
     for(int i=s->f;i<=s->r;i++)
     {
-        printf("%d\n",s->item[i]);
+        printf("%d ",s->item[i]);
     }
 }
 int main()
@@ -66,8 +69,9 @@ int main()
         insert(s,data);
     }
     
-    printf("Delete the element : \n");
-    del(s);
+    //printf("Delete the element : \n");
+    //del(s);
+    printf("Elements inside queue is : ");
     dis(s);
     printf("%s", "\U0001f600 ");
 }
