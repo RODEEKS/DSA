@@ -1,4 +1,8 @@
-    #include <stdio.h>
+/*The searching Algorithm searches for the specified element in the given list. 
+    Linear search and binary search are two common search methods used to find elements in a data structure. 
+    A sorting algorithm is used to rearrange the elements of a list in a specific order.*/
+
+#include <stdio.h>
     void main()
     {
  
